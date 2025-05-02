@@ -21,7 +21,7 @@ export default function BlogList() {
   const reloadPosts = () => {
     setLoading(true);
     const token = localStorage.getItem("token");
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts`, {
       headers: {
         Authorization: token ? `Bearer ${token}` : "",
       },

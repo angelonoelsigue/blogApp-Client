@@ -24,7 +24,7 @@ export default function AdminDashboard() {
       return;
     }
 
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -39,7 +39,7 @@ export default function AdminDashboard() {
 
   // Delete a blog post as admin
   const handleDeletePost = (postId) => {
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts/${postId}/admin`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts/${postId}/admin`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -54,7 +54,7 @@ export default function AdminDashboard() {
 
   // Delete a comment as admin
   const handleDeleteComment = (commentId, postId) => {
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/comments/${commentId}/admin`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/comments/${commentId}/admin`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

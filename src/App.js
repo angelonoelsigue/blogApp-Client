@@ -28,7 +28,7 @@ function App() {
     if (token && storedUserId) {
       setUser({ id: storedUserId, isAdmin: localStorage.getItem("isAdmin") === "true" });
     } else if (token) {
-      fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/users/details`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

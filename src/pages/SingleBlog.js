@@ -16,7 +16,7 @@ export default function SingleBlog({ show, onHide, blogId }) {
 
     const token = localStorage.getItem("token");
 
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts/${blogId}`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts/${blogId}`, {
       headers: {
         Authorization: token ? `Bearer ${token}` : "",
       },
@@ -42,7 +42,7 @@ export default function SingleBlog({ show, onHide, blogId }) {
   const handleEditSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts/${blogId}`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts/${blogId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function SingleBlog({ show, onHide, blogId }) {
 
   // Handle deleting the blog post
   const handleDelete = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts/${blogId}`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts/${blogId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -85,7 +85,7 @@ export default function SingleBlog({ show, onHide, blogId }) {
     e.preventDefault();
     if (!comment.trim()) return;
 
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts/${blogId}/comments`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts/${blogId}/comments`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

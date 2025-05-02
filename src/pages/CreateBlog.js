@@ -13,7 +13,7 @@ export default function CreateBlog({ show, onHide }) {
 
     console.log("Submitting new blog post...", { title, content });
 
-    fetch(`${process.env.REACT_APP_API_URL}/blogs/posts`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/blogs/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
